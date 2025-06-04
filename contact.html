@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Blagues très drôles</title>
+<style>
+  body {
+   background-color: #001f3f;
+   color:white;
+   font-family:'Comic Sans MS', sans-serif;
+   padding:30px;
+  }
+
+
+
+
+  .menu{
+    backgroung-color: #0f2537;
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:10px;
+    border-bottom:2px solid gold;
+    position:sticky;
+    top:0;
+    z-index:999;
+
+  .menu a{
+    color:white;
+    text-decoration:none;
+    background-color:#1c3d5a;
+    padding: 8px;
+    border-raduis:20px;
+    font-weight:bold;
+    transistion:0.3s;
+  }
+
+  .menu a:hover{
+    background-color: gold;
+    color:#0f2537;
+  }
+
+  h1 {
+   text-align: center;
+   color: #00c3ff;
+   text-shadow: 0 0 10px #0ff;
+  }
+
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  nav a{
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ff5722;
+    font-weight: bold;
+  }
+
+  form{
+    max-widht: 600px;
+    margin: auto;
+    background: #002c5a;
+    padding: 20px;
+    border-raduis: 10px;
+    box-shadow:0 0 15px rgba(0, 255, 255, 0.2);
+  }
+
+  label{
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  input, textarea{
+    width:100%;
+    padding:10px;
+    border-raduis: 5px;
+    border: none;
+    margin-top: 5px;
+    font-family: inherit;
+  }
+
+  button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00c3ff;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-raduis: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #66e0ff;
+  }
+
+  .confirmation{
+    text-align: center;
+    margin-top:20px;
+    font-size: 1.1em;
+    color:#00ffcc;
+    display: none;
+  }
+
+  .liste-blague{
+    max-width: 600px;
+    margin: 40px;
+    background: #001b33;
+    padding: 20px;
+    border-raduis:10px;
+  }
+
+  .blague-proposer{
+    background:  #003c66;
+    padding: 10px;
+    border-raduis:6px
+    margin-bottom: 10px;
+  }
+
+  .blague-proposer span{
+    font-weight: bold;
+    color: #00eaff;
+  }
+
+</style>
+</head>
+
+<body>
+
+
+
+<nav class="menu">
+<a href="index.html">🏘 Accueil</a>
+<a href="blague.html">😀blagues</a>
+<a href="roi.html">👑classement</a>
+<a href="jeu-du-jour.html">jeu du jour</a>
+<a href="contact.html">contact</a>
+</nav>
+
+<h1>propose une blague drôle !</h1>
+
+<form onsubmit="envoyer(event)">
+<label for="nom">ton nom ou pseudo</label>
+<input type="text" id="nom" required />
+
+<label for="message">ta blague :</label>
+<textarea id="message" rows="4" required /></textarea>
+
+<button type="submit">Envoyer la blague</button>
+
+<div class="confirmation" id="confirmation">
+merci ! ta blague est ajoutée à la collection !
+</div>
+</form>
+
+<div class="liste-blague" id="liste">
+<h2>Blagues proposées : </h2>
+</div>
+
+<script>
+const formulaire = document.querySelector("form");
+
+formulaire.addEventListener("submit", function(e){
+e.preventDefault();
+const nom = document.getElementById("pseudo").value.trim();
+const message = document.getElementById("message").value.trim();
+
+if(!message){
+alert("merci d'ecrire une blague😀");
+}
+
+const dateSoumission= new Date().toISOString()
+const nouvelleBlague= {
+nom: nom || "Anonyme",
+message: message,
+date: dateSoumissin
+};
+
+const blagues = JSON.parse(localStorage.getItem("blague-proposées")||"[]");
+blagues.push(nouvelleBlague);
+localStorage.setItem("blagues-propesées", JSON.stringify(blagues));
+
+alert("Ta blague a été enregistrée 🎉 merci !");
+formulaire.reset();
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>
+   

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0" />
+<title>galerie drôle</title>
+<style>
+  body{
+    margin: 0;
+    background: radial-gradient(circle at center, #66e0ff, #000814);
+    overflow: hidden;
+    font-family:'comic Sans MS', sans-serif;
+    color:white;
+    text-align: center;
+  }
+
+  nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  nav a{
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ff5722;
+    font-weight: bold;
+  }
+
+  .titre-arc{
+    font-size:2.8em;
+    text-align: center;
+    animation: arc-en-ciel 4s infinite;
+    margin-bottom: 10px;
+  }
+
+  @keyframes arc-en-ciel{
+    0%{color:red;}
+    20%{color:orange;}
+    40%{color:yellow;}
+    60%{color:green;}
+    80%{color:blue;}
+    100%{color: violet;}
+  }
+  
+  .galerie{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap:150px;
+  }
+
+  .galerie img{
+    width:100%;
+    max-height:140px;
+    object-fit: cover;
+    border-raduis:10px
+    cursor:pointer;
+    transition: transform: 0.3s ease;
+  }
+
+  .galerie img:hover {
+    transform:rotate(3deg) scale(1.07);
+  }
+
+  #lightbox{
+    display:none;
+    position: fixed;
+    top: 0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  #lightbox img{
+    max-width:80%;
+    max-height:80%
+    box-shadow: 0 0 20px white;
+    border-raduis: 10px;
+  }
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Accueil</a>
+<a href="blague.html">Blague</a>
+<a href="gallery.html">Galerie</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<h1 class="titre-arc">🎉 galerie drôle</h1>
+<p style="text-align:center;">clique sur une image pour zoomer😀</p>
+
+<div class="galerie">
+<img src="logo.png"  alt="logo"  title="quand on est moche😁😁"/>
+<img src="logo2.png"  alt="logo"  title="quand tu bois trop e"/>
+<img src="loulou.png"  alt="logo"  title="mauvais vilain peluche"/>
+</div>
+
+<div id="lightbox" onclick="this.style.display='none'">
+<img id="lightbox-img" src="" alt="zoom" />
+</div>
+
+
+
+
+
+
+
+
+
+<audio autoplay loop>
+<source src=" "type="audio/mpeg">
+ton navigateur ne supporte pas  l'audio
+
+
+</audio>
+
+
+</body>
+</html>
+  
